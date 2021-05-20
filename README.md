@@ -15,9 +15,9 @@ The time zone data is provided by [**iCalzone**](https://github.com/Manc/icalzon
 ## 📦 Installation
 
 ```sh
-yarn add ical-gen icalzone
+yarn add ical-gen ical-gen-calzone
 # or
-npm install ical-gen icalzone
+npm install ical-gen ical-gen-calzone
 ```
 
 
