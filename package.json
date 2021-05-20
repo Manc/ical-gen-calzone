@@ -2,8 +2,6 @@
   "name": "ical-gen-calzone",
   "version": "0.0.1",
   "description": "A calendar component for ical-gen that automatically adds VTIMEZONE components",
-  "main": "index.js",
-  "repository": "https://github.com/Manc/ical-gen-calzone",
   "author": "Nick Singleton",
   "license": "ISC",
   "private": false,
@@ -12,6 +10,28 @@
     "lint": "eslint 'src/**/*.ts'",
     "test": "jest"
   },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "url": "https://github.com/Manc/ical-gen-calzone.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/Manc/ical-gen-calzone/issues"
+  },
+  "homepage": "https://github.com/Manc/ical-gen-calzone",
+  "keywords": [
+    "ical-gen",
+    "ical",
+    "icalendar",
+    "ics",
+    "vtimezone",
+    "timezone",
+    "rfc5545"
+  ],
   "dependencies": {
     "icalzone": "^0.0.1"
   },
