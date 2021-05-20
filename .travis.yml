@@ -3,7 +3,6 @@ node_js:
  - stable
 install:
  - npm install
- - npm install ical-gen
 before_script:
  - npm run build
 script:
