@@ -1,0 +1,26 @@
+{
+  "name": "ical-gen-calzone",
+  "version": "0.0.1",
+  "description": "A calendar component for ical-gen that automatically adds VTIMEZONE components",
+  "main": "index.js",
+  "repository": "https://github.com/Manc/ical-gen-calzone",
+  "author": "Nick Singleton",
+  "license": "ISC",
+  "private": false,
+  "scripts": {
+    "build": "rm -rf ./dist ; tsc --project tsconfig.build.json",
+    "lint": "eslint 'src/**/*.ts'",
+    "test": "jest"
+  },
+  "dependencies": {
+    "icalzone": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "ical-gen": "^0.0.4"
+  }
+}
