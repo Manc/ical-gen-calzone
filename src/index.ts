@@ -1,11 +1,11 @@
-// import type { ICalComponent } from 'ical-gen';
+import type { ICalComponent } from 'ical-gen';
 import { ICalCalendar, ICalTimeZone } from 'ical-gen';
 import { getZoneLines } from 'icalzone';
 
 function vTimeZoneGenerator(tz: string): ICalTimeZone | undefined {
 	const tzLines = getZoneLines(tz, false);
 	return tzLines && new ICalTimeZone({ fromLines: tzLines });
-};
+}
 
 export default class ICalCalendarWithZones extends ICalCalendar {
 	/**
@@ -13,7 +13,7 @@ export default class ICalCalendarWithZones extends ICalCalendar {
 	 * to time zone components and dynamically adds them in front of all other
 	 * other children.
 	 */
-	public getChildrenForRender = async () => {
+	public getChildrenForRender = async (): Promise<Readonly<Array<ICalComponent | string>>> => {
 		// Get all time zones, but ignore UTC.
 		const timeZones = this.getTimeZones().filter(tz => tz !== 'UTC');
 
