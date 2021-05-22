@@ -4,5 +4,5 @@ node_js:
 before_script:
  - npm run build
 script:
- - npm test
- - npm lint
+ - npm run test
+ - npm run lint
