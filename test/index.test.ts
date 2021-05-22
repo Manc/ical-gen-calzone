@@ -4,33 +4,37 @@ import { ICalCalendarCalzone, ICalCalendarCalzoneOptions } from '../src';
 
 describe('ICalCalendarCalzone', () => {
 	const demoEvent1 = new ICalEvent({
-		// timezone: 'Europe/London',
+		// Note: For the given dates in time zone Europe/London,
+		// the resulting local time should be +1 hour (British
+		// Summer Time).
 		start: {
-			date: new Date(1621036800000),
+			date: new Date('2021-05-15T00:00:00.000Z'),
 			zone: 'Europe/London',
 		},
 		end: {
-			date: new Date(1621123200000),
+			date: new Date('2021-05-16T00:00:00.000Z'),
 			zone: 'Europe/London',
 		},
 		sequence: 1,
-		stamp: new Date(1621036800000),
+		stamp: new Date('2021-05-15T00:00:00.000Z'),
 		summary: 'Test 1',
 		uid: 'testuid1',
 	});
 
 	const demoEvent2 = new ICalEvent({
-		// timezone: 'Europe/Berlin',
+		// Note: For the given dates in time zone Europe/Berlin,
+		// the resulting local time should be +2 hour (Central
+		// European Summer Time).
 		start: {
-			date: new Date(1621036800000),
+			date: new Date('2021-05-15T00:00:00.000Z'),
 			zone: 'Europe/Berlin',
 		},
 		end: {
-			date: new Date(1621123200000),
+			date: new Date('2021-05-16T00:00:00.000Z'),
 			zone: 'Europe/Berlin',
 		},
 		sequence: 1,
-		stamp: new Date(1621036800000),
+		stamp: new Date('2021-05-15T00:00:00.000Z'),
 		summary: 'Test 2',
 		uid: 'testuid2',
 	});
