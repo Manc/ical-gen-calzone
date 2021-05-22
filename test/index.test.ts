@@ -1,8 +1,8 @@
 import { ICalEvent } from 'ical-gen';
-import ICalCalendarWithZones from '../src';
+import { ICalCalendarCalzone, ICalCalendarCalzoneOptions } from '../src';
 
 
-describe('ICalCalendarWithZones', () => {
+describe('ICalCalendarCalzone', () => {
 	const demoEvent1 = new ICalEvent({
 		// timezone: 'Europe/London',
 		start: {
@@ -37,7 +37,8 @@ describe('ICalCalendarWithZones', () => {
 
 	describe('renderToString()', () => {
 		it('renders the calendar with all three time zone components', async () => {
-			const str = await new ICalCalendarWithZones({
+			// Initialize options object separately to test the TS type.
+			const options: ICalCalendarCalzoneOptions = {
 				prodId: {
 					company: 'My Company X',
 					product: 'My Product Name',
@@ -45,7 +46,8 @@ describe('ICalCalendarWithZones', () => {
 				},
 				children: [demoEvent1, demoEvent2],
 				timezone: 'Europe/Paris',
-			}).renderToString();
+			};
+			const str = await new ICalCalendarCalzone(options).renderToString();
 			expect(str.match(/BEGIN:VTIMEZONE/g) || []).toHaveLength(3);
 			expect(str).toContain('TZID:Europe/Paris');
 			expect(str).toContain('TZID:Europe/London');
@@ -54,7 +56,7 @@ describe('ICalCalendarWithZones', () => {
 		});
 
 		it('renders the calendar with resolved time zone components, ingnores the unresolved time zone', async () => {
-			const str = await new ICalCalendarWithZones({
+			const str = await new ICalCalendarCalzone({
 				prodId: {
 					company: 'My Company X',
 					product: 'My Product Name',

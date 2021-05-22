@@ -1,13 +1,19 @@
-import type { ICalComponent } from 'ical-gen';
+import type { ICalComponent, ICalCalendarOptions } from 'ical-gen';
 import { ICalCalendar, ICalTimeZone } from 'ical-gen';
 import { getZoneLines } from 'icalzone';
+
+// This is the options type for this module's class is currently
+// only an alias for `ICalCalendarOptions`, but as this could
+// change in the future, export it for consistency.
+export type ICalCalendarCalzoneOptions = ICalCalendarOptions;
+
 
 function vTimeZoneGenerator(tz: string): ICalTimeZone | undefined {
 	const tzLines = getZoneLines(tz, false);
 	return tzLines && new ICalTimeZone({ fromLines: tzLines });
 }
 
-export default class ICalCalendarWithZones extends ICalCalendar {
+export class ICalCalendarCalzone extends ICalCalendar {
 	/**
 	 * This implementation of `getChildrenForRender()` resolves all time zones
 	 * to time zone components and dynamically adds them in front of all other
